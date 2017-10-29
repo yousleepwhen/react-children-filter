@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-children-filter.svg)](https://badge.fury.io/js/react-children-filter)
+
 # react-children-filter
 react component that return filtered children
 
