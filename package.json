@@ -1,7 +1,7 @@
 {
   "name": "react-children-filter",
   "version": "1.0.0",
-  "description": "return filtered children",
+  "description": "react component that return filtered children",
   "main": "lib/ChildrenFilter",
   "scripts": {
     "build": "babel src --out-dir lib",
