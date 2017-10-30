@@ -16,6 +16,32 @@ global.document = window.document;
 import { ChildrenFilter } from '../src/ChildrenFilter';
 
 describe("children filter test", function(){
+    context("single children", () => {
+        it('should render', () => {
+            const wrapper = mount(
+                <ChildrenFilter type='include_any' filter_key='status' filter={['status_a', 'status_b']}>
+                    <div status={['status_a']}>will?</div>
+                </ChildrenFilter>
+            );
+
+            expect(wrapper.containsMatchingElement(<div status={['status_a']}>will?</div>)).to.equal(true);
+        })
+    })
+
+    context("with ternary operator", () => {
+        it('should render else statement', () => {
+            const state = false;
+            const wrapper = mount(
+                <ChildrenFilter type='include_any' filter_key='status' filter={['status_a', 'status_b']}>
+                    { state ? <div status={['status_a']}>will?</div> :
+                       <div>haha</div>
+                    }
+                </ChildrenFilter>
+            );
+
+            expect(wrapper.containsMatchingElement(<div>haha</div>)).to.equal(true);
+        })
+    })
     context("type=[not exist] test", () => {
         it("should throw error [ChildrenFilter Type[throw_err] is not exist]", () => {
             expect(() => {

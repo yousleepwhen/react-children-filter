@@ -24,6 +24,10 @@ export class ChildrenFilter extends React.Component {
         const { filter, filter_key } = this.props;
         const filter_set = new Set(filter);
         const filteredChildren = React.Children.map(this.props.children, child => {
+            if(child === null || typeof child === 'string' || !child.props instanceof Object || child.props[filter_key] === undefined){
+                console.warn("If you see this message, make sure you have specified filter_key props on the child component. Otherwise, make sure you have children returning null or undefined or just string.\n");
+                return child;
+            }
             const child_filter_set = new Set(child.props[filter_key]);
             const is_contain = contains[type](filter_set, child_filter_set);
             return is_contain && React.cloneElement(child,{});
