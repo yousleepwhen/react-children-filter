@@ -43,7 +43,7 @@ export class ChildrenFilter extends React.Component {
 
 ChildrenFilter.propTypes= {
     filter: PropTypes.array.isRequired,
-    filter_key: PropTypes.array,
+    filter_key: PropTypes.string,
     type: PropTypes.string // include_all, include_any, except_all, except_any, same
 };
 
