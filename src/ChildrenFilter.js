@@ -41,7 +41,7 @@ export class ChildrenFilter extends React.Component {
 }
 
 
-ChildrenFilter.PropTypes = {
+ChildrenFilter.propTypes= {
     filter: PropTypes.array.isRequired,
     filter_key: PropTypes.array,
     type: PropTypes.string // include_all, include_any, except_all, except_any, same
@@ -49,6 +49,6 @@ ChildrenFilter.PropTypes = {
 
 ChildrenFilter.defaultProps = {
     filter_key: 'filter',
-    type: 'any',
+    type: 'include_any',
 };
 
